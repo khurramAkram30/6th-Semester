@@ -14,7 +14,12 @@ namespace NationalLevelPaper.Controllers
             return View();
         }
 
-        public ActionResult Index1()
+        public ActionResult Contact()
+        {
+            return View();
+        }
+
+        public ActionResult About()
         {
             return View();
         }

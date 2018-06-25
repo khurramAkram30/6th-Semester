@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "Login";
+    ViewBag.Title = "Register";
     Layout = "";
 }
 
@@ -10,7 +10,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Login | Coco - Responsive Bootstrap Admin Template</title>
+    <title>Register | Coco - Responsive Bootstrap Admin Template</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="description" content="">
@@ -57,7 +57,7 @@
     <link rel="apple-touch-icon" sizes="144x144" href="/templates/chat/assets/img/apple-touch-icon-144x144.png" />
     <link rel="apple-touch-icon" sizes="152x152" href="/templates/chat/assets/img/apple-touch-icon-152x152.png" />
 </head>
-<body class="fixed-left login-page">
+<body class="fixed-left signup-page">
     <!-- Modal Start -->
     <!-- Modal Task Progress -->
     <div class="md-modal md-3d-flip-vertical" id="task-progress">
@@ -110,27 +110,27 @@
     </div>        <!-- Modal End -->
     <!-- Begin page -->
     <div class="container">
-        <div class="full-content-center">
+        <div class="full-content-center animated fadeInDownBig">
             <p class="text-center"><a href="#"><img src="/templates/chat/assets/img/login-logo.png" alt="Logo"></a></p>
-            <div class="login-wrap animated flipInX">
+            <div class="login-wrap">
                 <div class="login-block">
-                    <img src="/templates/chat/images/users/default-user.png" class="img-circle not-logged-avatar">
-                    <form role="form" id='loginform' action="index.html">
+                    <form role="form" action="index.html">
+                        <div class="form-group login-input">
+                            <i class="fa fa-envelope overlay"></i>
+                            <input type="text" class="form-control text-input" placeholder="E-mail">
+                        </div>
                         <div class="form-group login-input">
                             <i class="fa fa-user overlay"></i>
-                            <input type="text" name='username' class="form-control text-input" placeholder="Username">
+                            <input type="text" class="form-control text-input" placeholder="Username">
                         </div>
                         <div class="form-group login-input">
                             <i class="fa fa-key overlay"></i>
-                            <input type="password" name='password' class="form-control text-input" placeholder="********">
+                            <input type="password" class="form-control text-input" placeholder="********">
                         </div>
-
+                        <div class="checkbox"><label><input type="checkbox" class="form-control"> I accept <strong><a href='#'>Terms and Conditions</a></strong></label></div>
                         <div class="row">
-                            <div class="col-sm-6">
-                                <button type="submit" class="btn btn-success btn-block">LOGIN</button>
-                            </div>
-                            <div class="col-sm-6">
-                                <a href="register.html" class="btn btn-default btn-block">Register</a>
+                            <div class="col-sm-12">
+                                <button type="submit" class="btn btn-default btn-block">Register</button>
                             </div>
                         </div>
                     </form>
@@ -139,7 +139,6 @@
 
         </div>
     </div>
-
     <!-- the overlay modal element -->
     <div class="md-overlay"></div>
     <!-- End of eoverlay modal -->
@@ -172,50 +171,6 @@
     <script src="/templates/chat/assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
     <script src="/templates/chat/assets/libs/jquery-icheck/icheck.min.js"></script>
 
-    <script>
-	var baseurl = "<?php echo BASE_URL?>";
-	$(function(){
-		$("#loginform").submit(function(){
-			$.post("membership/ajax.php?action=login", $(this).serialize(), function(response){
-				if(response.status === 1){
-					notify("success",response.message);
-					location.href = baseurl;
-				}else{
-					notify("error",response.message);
-				}
-			},"json");
-			return false;
-		})
-	});
-	function notify(style, text, position) {
-		if(style == "error"){
-			icon = "fa fa-exclamation";
-		}else if(style == "warning"){
-			icon = "fa fa-warning";
-		}else if(style == "success"){
-			icon = "fa fa-check";
-		}else if(style == "info"){
-			icon = "fa fa-question";
-		}else{
-			icon = "fa fa-circle-o";
-		}
-	    $.notify({
-
-	        text: text,
-	        image: "<i class='"+icon+"'></i>"
-	    }, {
-	        style: 'metro',
-	        className: style,
-	        globalPosition: position,
-	        showAnimation: "show",
-	        showDuration: 0,
-	        hideDuration: 10,
-	        autoHide: true,
-	        clickToHide: true
-	    });
-	}
-    </script>
-
     <!-- Chat Loader -->
     <script src="/templates/chat/assets/js/apps/chat.js"></script>
 
@@ -225,3 +180,4 @@
     <script src="/templates/chat/assets/js/init.js"></script>
 </body>
 </html>
+
