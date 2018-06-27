@@ -46,50 +46,19 @@
                                 <nav>
                                     <ul>
                                         <li>
-                                            <a href="/templates/eduhome/index.html">Home</a>
-                                            <ul>
-                                                <li><a href="/templates/eduhome/index.html">Home One</a></li>
-                                                <li><a href="/templates/eduhome/index-2.html">Home Two</a></li>
-                                                <li><a href="/templates/eduhome/index-3.html">Home Three</a></li>
-                                                <li><a href="/templates/eduhome/index-4.html">Home Four</a></li>
-                                                <li><a href="/templates/eduhome/index-5.html">Home Five</a></li>
-                                            </ul>
+                                            @*@Html.ActionLink("Link Text", "Action Name", "Controller Name")*@
+                                            @Html.ActionLink("Home", "Home", "Home")</a>
+                                            
                                         </li>
-                                        <li><a href="templates/eduhome/about.html">About</a></li>
-                                        <li>
-                                            <a href="templates/eduhome/course.html">courses</a>
-                                            <ul>
-                                                <li><a href="templates/eduhome/course.html">courses</a></li>
-                                                <li><a href="templates/eduhome/course-details.html">courses details</a></li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="templates/eduhome/event.html">event</a>
-                                            <ul>
-                                                <li><a href="templates/eduhome/event.html">event</a></li>
-                                                <li><a href="templates/eduhome/event-left-side-bar.html">event left sidebar</a></li>
-                                                <li><a href="templates/eduhome/event-right-side-bar.html">event right sidebar</a></li>
-                                                <li><a href="templates/eduhome/event-details.html">event details</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="hidden-sm">
-                                            <a href="templates/eduhome/teacher.html">teacher</a>
-                                            <ul>
-                                                <li><a href="templates/eduhome/teacher.html">teacher</a></li>
-                                                <li><a href="templates/eduhome/teacher-details.html">teacher details</a></li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="templates/eduhome/blog.html">blog</a>
-                                            <ul>
-                                                <li><a href="templates/eduhome/blog.html">blog</a></li>
-                                                <li><a href="templates/eduhome/blog-left-side-bar.html">blog left sidebar</a></li>
-                                                <li><a href="templates/eduhome/blog-right-side-bar.html">blog righ sidebar</a></li>
-                                                <li><a href="templates/eduhome/blog-details.html">blog details</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="templates/eduhome/contact.html">Contact</a></li>
-                                        <li><a href="#">Buy Now</a>
+                                        <li>@Html.ActionLink("About Us", "About", "Home")</li>
+                                        <li>@Html.ActionLink("Event", "Index", "Events")</li>
+                                        
+                                        
+                                        
+                                        <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>
+                                        <li>@Html.ActionLink("Login", "Login", "Account")
+</li>
+
                                     </ul>
                                 </nav>
                             </div>
@@ -106,7 +75,7 @@
     <section id="slider-container" class="slider-area">
         <div class="slider-owl owl-theme owl-carousel">
             <!-- Start Slingle Slide -->
-            <div class="single-slide item" style="background-image: url(img/slider/slider1.jpg)">
+            <div class="single-slide item" style="background-image: url(/templates/eduhome/img/slider/slider1.jpg)">
                 <!-- Start Slider Content -->
                 <div class="slider-content-area">
                     <div class="container">
@@ -128,7 +97,7 @@
             </div>
             <!-- End Slingle Slide -->
             <!-- Start Slingle Slide -->
-            <div class="single-slide item" style="background-image: url(templates/eduhome/img/slider/slider2.jpg)">
+            <div class="single-slide item" style="background-image: url(/templates/eduhome/img/slider/slider2.jpg)">
                 <!-- Start Slider Content -->
                 <div class="slider-content-area">
                     <div class="container">
@@ -150,7 +119,7 @@
             </div>
             <!-- End Slingle Slide -->
             <!-- Start Slingle Slide -->
-            <div class="single-slide item" style="background-image: url(templates/eduhome/img/slider/slider3.jpg)">
+            <div class="single-slide item" style="background-image: url(/templates/eduhome/img/slider/slider3.jpg)">
                 <!-- Start Slider Content -->
                 <div class="slider-content-area">
                     <div class="container">

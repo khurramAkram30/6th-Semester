@@ -6,23 +6,31 @@ using System.Web.Mvc;
 
 namespace NationalLevelPaper.Controllers
 {
-    public class HomeController : Controller
+    public class EnrollementsController : Controller
     {
-        // GET: Home
+        // GET: Enrollement
+
         public ActionResult Index()
         {
             return View();
         }
 
-       
-        public ActionResult Contact()
+        
+        public ActionResult Add()
         {
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Edit()
         {
             return View();
         }
+
+        public ActionResult Delete ()
+        {
+            return View();
+        }
+
+
     }
 }
