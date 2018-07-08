@@ -9,40 +9,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Enrollments">
-      <EntityTypeMapping TypeName="NatinaolLevelPaperModel.Enrollment">
-        <MappingFragment StoreEntitySet="Enrollments">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="Age" ColumnName="Age" />
-          <ScalarProperty Name="Qualification" ColumnName="Qualification" />
-          <ScalarProperty Name="Payment" ColumnName="Payment" />
-          <ScalarProperty Name="Phone" ColumnName="Phone" />
-          <ScalarProperty Name="Gender" ColumnName="Gender" />
-          <ScalarProperty Name="EnrollmentStatusId" ColumnName="EnrollmentStatusId" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="EventId" ColumnName="EventId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Events">
-      <EntityTypeMapping TypeName="NatinaolLevelPaperModel.Event">
-        <MappingFragment StoreEntitySet="Events">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Date" ColumnName="Date" />
-          <ScalarProperty Name="Fees" ColumnName="Fees" />
-          <ScalarProperty Name="Eligibility" ColumnName="Eligibility" />
-          <ScalarProperty Name="Spearker" ColumnName="Spearker" />
-          <ScalarProperty Name="Topics" ColumnName="Topics" />
-          <ScalarProperty Name="Prize" ColumnName="Prize" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="TermsAndCondition" ColumnName="TermsAndCondition" />
-          <ScalarProperty Name="Winner" ColumnName="Winner" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Subcribers">
       <EntityTypeMapping TypeName="NatinaolLevelPaperModel.Subcriber">
         <MappingFragment StoreEntitySet="Subcribers">
@@ -67,6 +33,34 @@
         <MappingFragment StoreEntitySet="UserTypes">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Enrollments">
+      <EntityTypeMapping TypeName="NatinaolLevelPaperModel.Enrollment">
+        <MappingFragment StoreEntitySet="Enrollments">
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="EnrollmentStatusId" ColumnName="EnrollmentStatusId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Events">
+      <EntityTypeMapping TypeName="NatinaolLevelPaperModel.Event">
+        <MappingFragment StoreEntitySet="Events">
+          <ScalarProperty Name="Winner" ColumnName="Winner" />
+          <ScalarProperty Name="TermsAndCondition" ColumnName="TermsAndCondition" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Prize" ColumnName="Prize" />
+          <ScalarProperty Name="Topics" ColumnName="Topics" />
+          <ScalarProperty Name="Spearker" ColumnName="Spearker" />
+          <ScalarProperty Name="Eligibility" ColumnName="Eligibility" />
+          <ScalarProperty Name="Fees" ColumnName="Fees" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

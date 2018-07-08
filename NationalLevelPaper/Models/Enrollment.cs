@@ -15,19 +15,12 @@ namespace NationalLevelPaper.Models
     public partial class Enrollment
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public Nullable<int> Age { get; set; }
-        public string Qualification { get; set; }
-        public Nullable<decimal> Payment { get; set; }
-        public string Phone { get; set; }
-        public string Gender { get; set; }
         public Nullable<int> EnrollmentStatusId { get; set; }
         public Nullable<int> UserId { get; set; }
         public Nullable<int> EventId { get; set; }
     
         public virtual EnrollementStatus EnrollementStatus { get; set; }
-        public virtual Event Event { get; set; }
         public virtual User User { get; set; }
+        public virtual Event Event { get; set; }
     }
 }

@@ -26,8 +26,8 @@ namespace NationalLevelPaper.Models
         public string Password { get; set; }
         public int UserTypeId { get; set; }
     
+        public virtual UserType UserType { get; set; }
         public virtual ICollection<Enrollment> Enrollments { get; set; }
         public virtual ICollection<Event> Events { get; set; }
-        public virtual UserType UserType { get; set; }
     }
 }

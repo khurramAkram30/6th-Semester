@@ -1,8 +1,55 @@
-﻿
+﻿@model IEnumerable<NationalLevelPaper.Models.Event>
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/FrontEnd.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Index</h2>
+
+@Html.ActionLink("Add New Events", "Add", null, new { @class = "btn-Default" })
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+         </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered table-condensed table-responsive">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Name</td>
+                            <td>@item.Image</td>
+                            <td>@item.Date</td>
+                            <td>@item.Fees</td>
+                            <td>@item.Eligibility</td>
+                            <td>@item.Spearker</td>
+                            <td>@item.Topics</td>
+                            <td>@item.Prize</td>
+                            <td>@item.Email</td>
+                            <td>@item.Winner</td>
+
+                            <td> @Html.ActionLink("Edit", "Edit", new { Id = item.Id }) | @Html.ActionLink("Delete", "Delete", new { Id = item.Id }) </td>
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+</div>
+
+
+
 

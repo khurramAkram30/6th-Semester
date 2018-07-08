@@ -292,8 +292,9 @@ x                </div>
                         <a href="/templates/chat/profile.html" class="rounded-image profile-image"><img src="/templates/chat/images/users/user-100.jpg"></a>
                     </div>
                     <div class="col-xs-8">
-                        <div class="profile-text">Welcome <b>Jane</b></div>
-                        <div class="profile-buttons">
+                        if(user != null){
+                        <div class="profile-text">@Session["name"]</b></div>
+                     }   <div class="profile-buttons">
                             <a href="javascript:;"><i class="fa fa-envelope-o pulse"></i></a>
                             <a href="/templates/chat/#connect" class="open-right"><i class="fa fa-comments"></i></a>
                             <a href="javascript:;" title="Sign Out"><i class="fa fa-power-off text-red-1"></i></a>
@@ -315,9 +316,9 @@ x                </div>
                             </a>
 
                             <ul>
-                                <li><a href="AddEnrollments.html" class="active"><span>Add Enrollments</span></a></li>
-                                <li><a href="Enrollments.html" class="active"><span>Enrollments List</span></a></li>
-                                <li><a href="index2.html"><span>Enrollments Status</span></a></li>
+                                <li>@Html.ActionLink("Add Enrollements","Add","Enrollements")</li>
+                                <li>@Html.ActionLink("Edit Enrollements", "Edit", "Enrollements")</li>
+
                             </ul>
                         </li>
                         <li class="has_sub">
@@ -327,9 +328,8 @@ x                </div>
                             </a>
 
                             <ul>
-                                <li><a href="index.html" class="active"><span>Add Events</span></a></li>
-                                <li><a href="index.html" class="active"><span>Events List</span></a></li>
-                                <li><a href="index2.html"><span>Enrollments Status</span></a></li>
+                                <li>@Html.ActionLink("Add Events","Add","Events")</li>
+                                <li>@Html.ActionLink("Event List", "Index", "Events")</li>
                             </ul>
                         </li>
                         <li class="has_sub">
@@ -339,8 +339,7 @@ x                </div>
                             </a>
 
                             <ul>
-                                <li><a href="index.html" class="active"><span>Add Subscribers</span></a></li>
-                                <li><a href="index.html" class="active"><span>Subscribers List</span></a></li>
+                                <li>@Html.ActionLink("Subscriber List","index","Subscribers")</li>
                             </ul>
                         </li>
                         <li class="has_sub">

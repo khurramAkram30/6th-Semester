@@ -1350,8 +1350,8 @@
     <Content Include="templates\eduhome\img\footer\footer4.jpg" />
     <Content Include="templates\eduhome\img\icon\section.png" />
     <Content Include="templates\eduhome\img\icon\section1.png" />
-    <Content Include="templates\eduhome\img\logo\footer-logo.png" />
-    <Content Include="templates\eduhome\img\logo\logo.png" />
+    <Content Include="templates\eduhome\img\logo\footer-kse.png" />
+    <Content Include="templates\eduhome\img\logo\ksc.png" />
     <Content Include="templates\eduhome\img\logo\logo2.png" />
     <Content Include="templates\eduhome\img\map-marker.png" />
     <Content Include="templates\eduhome\img\notice\video.jpg" />
@@ -1640,13 +1640,13 @@
     <Content Include="Views\Enrollement\Edit.cshtml" />
     <Content Include="Views\Enrollement\Delete.cshtml" />
     <Content Include="Views\Enrollement\Index.cshtml" />
-    <Content Include="Views\Event\Index.cshtml" />
-    <Content Include="Views\Event\Add.cshtml" />
-    <Content Include="Views\Event\Edit.cshtml" />
-    <Content Include="Views\Event\Delete.cshtml" />
-    <Content Include="Views\Subscribers\Add.cshtml" />
     <Content Include="Views\Subscribers\Delete.cshtml" />
     <Content Include="Views\Events\Index.cshtml" />
+    <Content Include="Views\Events\Add.cshtml" />
+    <Content Include="Views\Events\Edit.cshtml" />
+    <Content Include="Views\Shared\Innerpages.cshtml" />
+    <Content Include="Views\Events\EventDetail.cshtml" />
+    <Content Include="Views\Subscribers\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

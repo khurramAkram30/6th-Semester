@@ -25,7 +25,18 @@ namespace NationalLevelPaper.Controllers
             if (user != null)
             {
                 Session["id"] = user.Id;
-                return RedirectToAction("index", "Home");
+                Session["userType"] = user.UserTypeId;
+                Session["name"] = user.Name;
+                
+
+                 if (user.UserTypeId == 3) { 
+ 
+                    return RedirectToAction("index", "Events");
+                }
+                else if(user.UserTypeId == 4)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
             }
             else
             {
@@ -55,7 +66,7 @@ namespace NationalLevelPaper.Controllers
 
             user.Password = pwd;
             
-            user.UserTypeId = 3;
+            user.UserTypeId = 4;
 
             db.Users.Add(user);
 

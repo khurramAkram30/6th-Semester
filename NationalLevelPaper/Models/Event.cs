@@ -21,12 +21,13 @@ namespace NationalLevelPaper.Models
     
         public int Id { get; set; }
         public string Name { get; set; }
-        public Nullable<System.DateTime> Date { get; set; }
-        public Nullable<decimal> Fees { get; set; }
+        public string Image { get; set; }
+        public string Date { get; set; }
+        public string Fees { get; set; }
         public string Eligibility { get; set; }
         public string Spearker { get; set; }
         public string Topics { get; set; }
-        public Nullable<decimal> Prize { get; set; }
+        public string Prize { get; set; }
         public string Email { get; set; }
         public string TermsAndCondition { get; set; }
         public Nullable<int> Winner { get; set; }

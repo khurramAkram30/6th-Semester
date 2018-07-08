@@ -12,13 +12,6 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Email" Type="nvarchar" MaxLength="50" />
-    <Property Name="Age" Type="int" />
-    <Property Name="Qualification" Type="varchar" MaxLength="200" />
-    <Property Name="Payment" Type="money" />
-    <Property Name="Phone" Type="varchar" MaxLength="50" />
-    <Property Name="Gender" Type="varchar" MaxLength="50" />
     <Property Name="EnrollmentStatusId" Type="int" />
     <Property Name="UserId" Type="int" />
     <Property Name="EventId" Type="int" />
@@ -29,12 +22,13 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="varchar" MaxLength="50" />
-    <Property Name="Date" Type="datetime" />
-    <Property Name="Fees" Type="money" />
+    <Property Name="Image" Type="varchar" MaxLength="50" />
+    <Property Name="Date" Type="varchar" MaxLength="50" />
+    <Property Name="Fees" Type="varchar" MaxLength="50" />
     <Property Name="Eligibility" Type="nvarchar(max)" />
     <Property Name="Spearker" Type="varchar" MaxLength="50" />
     <Property Name="Topics" Type="varchar(max)" />
-    <Property Name="Prize" Type="money" />
+    <Property Name="Prize" Type="varchar" MaxLength="50" />
     <Property Name="Email" Type="nvarchar" MaxLength="60" />
     <Property Name="TermsAndCondition" Type="nvarchar(max)" />
     <Property Name="Winner" Type="int" />
@@ -50,7 +44,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="varchar" MaxLength="50" />
     <Property Name="Email" Type="varchar" MaxLength="50" />
     <Property Name="Password" Type="nvarchar" MaxLength="50" />
