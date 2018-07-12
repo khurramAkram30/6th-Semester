@@ -253,8 +253,10 @@ x                </div>
                                 </ul>
                             </li>
                             <li class="dropdown iconify hide-phone"><a href="/templates/chat/#" onclick="javascript:toggle_fullscreen()"><i class="icon-resize-full-2"></i></a></li>
-                            <li class="dropdown topbar-profile">
-                                <a href="/templates/chat/#" class="dropdown-toggle" data-toggle="dropdown"><span class="rounded-image topbar-profile-image"><img src="/templates/chat/images/users/user-35.jpg"></span> Jane <strong>Doe</strong> <i class="fa fa-caret-down"></i></a>
+                           
+                                  <li class="dropdown topbar-profile">
+                                <a href="/templates/chat/#" class="dropdown-toggle" data-toggle="dropdown"><span class="rounded-image topbar-profile-image"><img src="/templates/chat/images/users/user-35.jpg"></span>  <strong>@Session["name"]</strong> <i class="fa fa-caret-down"></i></a>
+                                
                                 <ul class="dropdown-menu">
                                     <li><a href="/templates/chat/#">My Profile</a></li>
                                     <li><a href="/templates/chat/#">Change Password</a></li>
@@ -316,8 +318,8 @@ x                </div>
                             </a>
 
                             <ul>
-                                <li>@Html.ActionLink("Add Enrollements","Add","Enrollements")</li>
-                                <li>@Html.ActionLink("Edit Enrollements", "Edit", "Enrollements")</li>
+                                <li>@Html.ActionLink("View Enrollements","index","Enrollements")</li>
+                                
 
                             </ul>
                         </li>

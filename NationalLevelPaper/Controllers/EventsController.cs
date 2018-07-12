@@ -94,10 +94,23 @@ namespace NationalLevelPaper.Controllers
     
         }
 
-        public ActionResult EventDetail()
+        public ActionResult EventDetail(int id)
         {
-            return View();
+            //var detail_id = db.Events.Find(id);
+
+            var eventList = db.Events.ToList().Where(m=>m.Id == id);
+
+            return View(eventList);
         }
+
+        //[HttpPost]
+        //public ActionResult EventDetail(Event events)
+        //{
+        //    var detail_id = db.Events.Find(events.Id);
+
+            
+        //    return View();
+        //}
     
     
     

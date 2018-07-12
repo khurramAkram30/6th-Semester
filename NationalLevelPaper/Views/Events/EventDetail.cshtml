@@ -1,37 +1,90 @@
-﻿
+﻿@model IEnumerable<NationalLevelPaper.Models.Event>
 @{
     ViewBag.Title = "EventDetail";
     Layout = "~/Views/Shared/Innerpages.cshtml";
 }
 
-<h2 style="text-align:center">Events Details:</h2>
+<div class="banner-area-wrapper">
+    <div class="banner-area text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="banner-content-wrapper">
+                        <div class="banner-content">
+                            <h2>Event Details</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="container">
     <div class="row">
+        @foreach(var item in Model)
+        {   
+      
+      
+        <div class="container-fluid">
+            <h1 style="width:100%; background-color:#1413131a; text-align:center; font-size:20px;">Event Name</h1>      
+                  <p>@item.Name</p>
+        </div>
+        <div class="container-fluid">
+            <h1 style="width:100%; background-color:#1413131a; text-align:center; font-size:20px;">Date</h1>
+            <p>@item.Date</p>
 
-        <h1>THE PROCEDURE FOR APPYLING FOR PARTICIPATION:-</h1>
+        </div>
+        <div class="container-fluid">
+            <h1 style="width:100%; background-color:#1413131a; text-align:center; font-size:20px;">Speaker Name</h1>         
+               <p>@item.Spearker</p>
+
+        </div>
+    <div class="container-fluid">
+        <h1 style="width:100%; background-color:#1413131a; text-align:center; font-size:20px;">Procedure For Applying</h1>
         <p> The procedure for applying for participation, visits to the website and first registers yourself on the registration form, and then login your account, after that you can fill the requirements and submit for the participate.</p>
-    
-
-        <h1>THE FEES DETAIL:-</h1>
-        <p> The procedure for applying for participation, visits to the website and first registers yourself on the registration form, and then login your account, after that you can fill the requirements and submit for the participate.</p>
-    
-
-        <h1>ELIGIBILITY CRITERIA:-</h1>
-        <p> The procedure for applying for participation, visits to the website and first registers yourself on the registration form, and then login your account, after that you can fill the requirements and submit for the participate.</p>
-
-
-        <h1>PRIZE DETAIL:-</h1>
-        <p> The procedure for applying for participation, visits to the website and first registers yourself on the registration form, and then login your account, after that you can fill the requirements and submit for the participate.</p>
-
-        <h1>TERMS AND CONDITIONS:-:-</h1>
-        <p>The terms and conditions for the competition should be applied on every participant, which are as follows:</p>
-        <ul>
-            <li>The speech should be complete in 10 to 15 minutes otherwise your points will be deducted.</li>
-        <li>The participants should be in formal dresses including tie which is compulsory.</li>
-          <li>Other dresses like jeans, shorts, t-shirts, etc will not allow.</li>
-        <li>Only dressing shoes are allowed other shoes, boots, slippers, sandals, etc will not allow.</li>
-        <li>Students are ordered that they have to bring their receipt and confirmation letter also with them. Otherwise the will not allow to perform. </li>
-        </ul>
     </div>
 
+                <div class="container-fluid">
+
+        <h1 style="width:100%; background-color:#1413131a; text-align:center; font-size:20px;">Fees Detail</h1>
+        <p> The procedure for applying for participation, visits to the website and first registers yourself on the registration form, and then login your account, after that you can fill the requirements and submit for the participate.</p>
+        </div>
+
+
+    <div class="container-fluid">
+
+        <h1 style="width:100%; background-color:#1413131a; text-align:center; font-size:20px;">Eligibility Criteria:</h1>
+        <p> These competitions are only for the students who are studding in any schools, colleges, universities. The age limits required about 15 to 30 years old are eligible for the competition. </p>
+</div>
+
+    <div class="container-fluid">
+
+
+        <h1 style="width:100%; background-color:#1413131a; text-align:center; font-size:20px;">Prize Detail</h1>
+        <p> The students who performs well and win the competition they will rewarded as a prize. The 3rd winner will rewarded with five thousand rupees (5000) and a brown medal, the 2nd winner will rewarded with ten thousand rupees (10000) with silver medal, and the 1st winner will rewarded with thirty thousand rupees (30000) with the golden trophy and medal also.</p>
+
+        </div>
+                <div class="container-fluid">
+
+        <h1 style="width:100%; background-color:#1413131a; text-align:center; font-size:20px;">Terms And Condition</h1>
+        <p>The terms and conditions for the competition should be applied on every participant, which are as follows:</p>
+        <ol >
+            <li>The speech should be complete in 10 to 15 minutes otherwise your points will be deducted.</li>
+            <li>The participants should be in formal dresses including tie which is compulsory.</li>
+            <li>Other dresses like jeans, shorts, t-shirts, etc will not allow.</li>
+            <li>Only dressing shoes are allowed other shoes, boots, slippers, sandals, etc will not allow.</li>
+            <li>Students are ordered that they have to bring their receipt and confirmation letter also with them. Otherwise the will not allow to perform. </li>
+        </ol>
+</div>
+        }
+    </div></div>
+<br /><br />  
+<div style=" margin-left:90px;">
+    @using (Html.BeginForm())
+    {
+
+        @Html.ActionLink("Enroll For This Event", "EventDetail", new { controller = "Events" }, new { @class = "default-btn" })
+
+    }
 </div>

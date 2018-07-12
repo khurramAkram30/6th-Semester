@@ -64,7 +64,11 @@
                             <div class="event-content-right">
                                 @*<a class="default-btn" href="event-details.html">join now</a>*@
 
-                                @Html.ActionLink("Event Detail","EventDetail", "Events", new {@class= "default-btn" })
+                                @*@Html.ActionLink("Event Detail","EventDetail", "Events", new {@class= "default-btn" })*@
+                            
+                                
+                                <a href="@Url.Action("EventDetail", "Events", new { id = item.Id })">Details</a>
+                            
                             </div>
                         </div>
                     </div>
