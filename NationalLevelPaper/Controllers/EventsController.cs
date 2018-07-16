@@ -93,27 +93,50 @@ namespace NationalLevelPaper.Controllers
             return RedirectToAction("Index");
     
         }
-
+        
         public ActionResult EventDetail(int id)
         {
             //var detail_id = db.Events.Find(id);
-
+            Session["eventid"] = id;
+            
             var eventList = db.Events.ToList().Where(m=>m.Id == id);
 
             return View(eventList);
         }
 
-        //[HttpPost]
-        //public ActionResult EventDetail(Event events)
-        //{
-        //    var detail_id = db.Events.Find(events.Id);
+        [HttpPost]
+        public ActionResult EventDetail(int userid, int eventids)
+        {
 
-            
-        //    return View();
-        //}
-    
-    
-    
+            if (Session["id"] == null)
+            {
+                //Console.WriteLine("<script>alert('plz login first')</script>");
+                return RedirectToAction("login","Account");
+            }
+
+            else
+            {
+                Enrollment enroll = new Enrollment();
+
+                enroll.EnrollmentStatusId = 1;
+                enroll.UserId = (int)Session["id"];
+                enroll.EventId = (int)Session["eventid"]; ;
+
+                db.Enrollments.Add(enroll);
+                db.SaveChanges();
+
+                ViewBag.saveData = "u are enroll";
+            }
+            return RedirectToAction("index","Home");
+        }
+
+
+        public ActionResult EventPage()
+        {
+            var Eventpage = db.Events.ToList();
+
+            return View(Eventpage);
+        }
     
     
     }

@@ -6,7 +6,7 @@
 }
 
 <div>
-    @if(User !=null)
+    @if(Session["id"] !=null)
     {
       <h1>@Session["name"];</h1>
     }
@@ -26,7 +26,7 @@
             </div>
             <div class="col-md-6 col-sm-6">
                 <div class="about-img">
-                    <img src="/templates/eduhome/img/about/about.png" alt="about">
+                    <img src="/templates/eduhome/img/about/sci.jpeg" alt="about">
                 </div>
             </div>
         </div>
@@ -154,9 +154,17 @@
                             <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
                             <div class="mc-news" aria-hidden="true"><input type="text" name="b_6bbb9b6f5827bd842d9640c82_05d85f18ef" tabindex="-1" value=""></div>
                             <button id="mc-embedded-subscribe" class="default-btn" type="submit" name="subscribe"><span>subscribe</span></button>
+                        
                         </div>
     
 }
+                    <div>
+                        @if (ViewBag.error != null)
+                        {
+                            <p>@ViewBag.error</p>
+                        }
+                    </div>
+
                     <!-- mailchimp-alerts Start -->
                     <div class="mailchimp-alerts">
                         <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->

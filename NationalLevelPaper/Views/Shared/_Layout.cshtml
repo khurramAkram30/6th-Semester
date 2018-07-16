@@ -294,8 +294,8 @@ x                </div>
                         <a href="/templates/chat/profile.html" class="rounded-image profile-image"><img src="/templates/chat/images/users/user-100.jpg"></a>
                     </div>
                     <div class="col-xs-8">
-                        if(user != null){
-                        <div class="profile-text">@Session["name"]</b></div>
+                        @if(Session["id"] != null){
+                        <div class="profile-text">@Session["name"]</div>
                      }   <div class="profile-buttons">
                             <a href="javascript:;"><i class="fa fa-envelope-o pulse"></i></a>
                             <a href="/templates/chat/#connect" class="open-right"><i class="fa fa-comments"></i></a>
@@ -345,17 +345,27 @@ x                </div>
                             </ul>
                         </li>
                         <li class="has_sub">
-                            <a href="javascript:void(0);" class="active">
+                            <a href="javascript:void(0);" >
                                 <i class="icon-home-3"></i><span>Users</span>
                                 <span class="pull-right"><i class="fa fa-angle-down"></i></span>
                             </a>
 
                             <ul>
-                                <li><a href="index.html" class="active"><span>Add Users</span></a></li>
-                                <li><a href="index.html" class="active"><span>Users List</span></a></li>
+                                <li><i class="icon-home-3"></i>@Html.ActionLink("Users List", "index", "Account")</li>
                             </ul>
                         </li>
 
+
+                        <li class="has_sub">
+                            <a href="javascript:void(0);" class="">
+                                <i class="icon-home-3"></i><span>Contact</span>
+                                <span class="pull-right"><i class="fa fa-angle-down"></i></span>
+                            </a>
+
+                            <ul>
+                                <li>@Html.ActionLink("Contact Message", "ContactDetail", "Home")</li>
+                            </ul>
+                        </li>
                     </ul>
 
                     <div class="clearfix"></div>

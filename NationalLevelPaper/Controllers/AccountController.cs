@@ -10,6 +10,17 @@ namespace NationalLevelPaper.Controllers
     {
         
         // GET: Account
+
+
+        public ActionResult index()
+        {
+            var db = new NatinaolLevelPaperEntities();
+
+            var users = db.Users.ToList();
+
+            return View(users);
+        }
+        
         public ActionResult Login()
         {
             return View();

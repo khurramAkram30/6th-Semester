@@ -1,5 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="NatinaolLevelPaperModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Contacts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Subject" Type="varchar(max)" />
+    <Property Name="Message" Type="varchar(max)" />
+  </EntityType>
   <EntityType Name="EnrollementStatuses">
     <Key>
       <PropertyRef Name="Id" />
@@ -118,6 +128,7 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="NatinaolLevelPaperModelStoreContainer">
+    <EntitySet Name="Contacts" EntityType="Self.Contacts" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EnrollementStatuses" EntityType="Self.EnrollementStatuses" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Enrollments" EntityType="Self.Enrollments" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Events" EntityType="Self.Events" Schema="dbo" store:Type="Tables" />

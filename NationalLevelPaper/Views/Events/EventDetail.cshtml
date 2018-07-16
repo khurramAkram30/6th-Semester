@@ -4,6 +4,18 @@
     Layout = "~/Views/Shared/Innerpages.cshtml";
 }
 
+@if (ViewBag.saveDate != null)
+{
+    <p>@ViewBag.saveData</p>
+}
+else
+{
+    
+   <p>Not Inserted      </p>
+}
+
+
+
 <div class="banner-area-wrapper">
     <div class="banner-area text-center">
         <div class="container">
@@ -83,8 +95,10 @@
 <div style=" margin-left:90px;">
     @using (Html.BeginForm())
     {
-
-        @Html.ActionLink("Enroll For This Event", "EventDetail", new { controller = "Events" }, new { @class = "default-btn" })
-
+        <input type="hidden" value='@Session["eventid"]' name="eventids" />
+    <input type="hidden" name="userid" value='@Session["id"]'  />
+        @*@Html.ActionLink("Enroll For This Event", "EventDetail", new { controller = "Events" }, new { @class = "default-btn",type="submit"})*@
+        
+        <input type="submit" name="submit" value="enroll">
     }
 </div>

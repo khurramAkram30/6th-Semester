@@ -75,6 +75,7 @@
       <End Role="User" EntitySet="Users" />
       <End Role="Event" EntitySet="Events" />
     </AssociationSet>
+    <EntitySet Name="Contacts" EntityType="NatinaolLevelPaperModel.Contact" />
   </EntityContainer>
   <EntityType Name="Enrollment">
     <Key>
@@ -155,4 +156,14 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Subject" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>

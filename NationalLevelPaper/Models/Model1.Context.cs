@@ -31,5 +31,6 @@ namespace NationalLevelPaper.Models
         public virtual DbSet<UserType> UserTypes { get; set; }
         public virtual DbSet<Enrollment> Enrollments { get; set; }
         public virtual DbSet<Event> Events { get; set; }
+        public virtual DbSet<Contact> Contacts { get; set; }
     }
 }

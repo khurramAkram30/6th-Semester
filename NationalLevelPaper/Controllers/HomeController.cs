@@ -21,11 +21,20 @@ namespace NationalLevelPaper.Controllers
         public ActionResult Index(string email)
         {
             var sub = new Subcriber();
-            sub.Email = email;
-            db.Subcribers.Add(sub);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+         
+            if (sub.Email == email)
+            {
+                ViewBag.error = "this email already exist";
+            }
+            else
+            {
+                sub.Email = email;
+                db.Subcribers.Add(sub);
+                db.SaveChanges();
+                return RedirectToAction("Index");
 
+            }
+            return View();
         }
 
        
@@ -33,6 +42,29 @@ namespace NationalLevelPaper.Controllers
         {
             return View();
         }
+[HttpPost]
+        public ActionResult Contact(string name,string email,string subject,string message)
+        {
+            var cont = new Contact();
+            cont.Name = name;
+            cont.Email = email;
+            cont.Subject = subject;
+            cont.Message = message;
+            db.Contacts.Add(cont);
+            db.SaveChanges();
+
+            ViewBag.save = "thank u for contact us";
+            return View();
+        }
+
+
+        public ActionResult ContactDetail()
+            {
+             var contact = db.Contacts.ToList();
+
+            return View(contact);
+            }
+
 
         public ActionResult About()
         {

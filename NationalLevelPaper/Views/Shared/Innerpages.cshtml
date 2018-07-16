@@ -54,12 +54,19 @@
                                             
                                         </li>
                                         <li>@Html.ActionLink("About Us", "About", "Home")</li>
-                                        <li>@Html.ActionLink("Event", "Index", "Events")</li>
+                                        <li>@Html.ActionLink("Event", "EventPage", "Events")</li>
                                         
                                         
                                         
                                         <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>
-                                        <li>@Html.ActionLink("Login", "Login", "Account")
+                                        <li>@if (Session["id"] != null)
+                                        {
+                                            @Html.ActionLink("Logout", "Login", "Account")
+                                        }
+                                        else
+                                        {
+                                            @Html.ActionLink("login", "Login", "Account")
+                                        }
 </li>
 
                                     </ul>

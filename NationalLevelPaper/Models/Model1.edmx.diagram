@@ -16,6 +16,7 @@
         <EntityTypeShape EntityType="NatinaolLevelPaperModel.Event" Width="1.5" PointX="5.25" PointY="0.75" />
         <AssociationConnector Association="NatinaolLevelPaperModel.FK_Enrollments_Events" />
         <AssociationConnector Association="NatinaolLevelPaperModel.FK_Events_Users" />
+        <EntityTypeShape EntityType="NatinaolLevelPaperModel.Contact" Width="1.5" PointX="7.375" PointY="0.875" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
