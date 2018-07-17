@@ -1,0 +1,59 @@
+﻿@model IEnumerable<NationalLevelPaper.Models.Enrollment>
+
+@{
+    ViewBag.Title = "myeventpage";
+    Layout = "~/Views/Shared/Innerpages.cshtml";
+}
+
+
+<div class="banner-area-wrapper">
+    <div class="banner-area text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="banner-content-wrapper">
+                        <div class="banner-content">
+                            <h2>Event History</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<p>
+</p>
+
+<h1></h1>
+<table class="table table-bordered" style="text-align:center;">
+    <tr>
+        <th>
+           User Name
+        </th>
+        <th>
+            Event Name
+        </th>
+        <th>
+            Enrollement Status
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+                @item.User.Name
+        </td>
+        <td>
+            @item.Event.Name
+        </td>
+        <td>
+            @item.EnrollementStatus.Name        </td>
+
+    </tr>
+}
+
+</table>

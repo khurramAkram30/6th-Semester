@@ -1,4 +1,4 @@
-﻿@model NationalLevelPaper.ViewModel.Multipledata
+﻿@model List<NationalLevelPaper.Models.Enrollment>
 
 @{
     ViewBag.Title = "index";
@@ -7,3 +7,28 @@
 
 <h2>index</h2>
 
+<table class="table">
+    <thead>
+        <tr>
+            <th>UserName</th>
+
+            <th>Email</th>
+
+            <th>Event Name</th>
+            <th>Enrollment Status</th>
+        </tr>
+    </thead>
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.User.Name</td>
+            <td>@item.User.Email</td>
+            <td>@item.Event.Name</td>
+            <td>@item.EnrollementStatus.Name</td>
+    </tr>
+
+    }
+
+</table>

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using NationalLevelPaper.Models;
-using NationalLevelPaper.ViewModel;
+
 
 namespace NationalLevelPaper.Controllers
 {
@@ -15,10 +15,12 @@ namespace NationalLevelPaper.Controllers
         NatinaolLevelPaperEntities db = new NatinaolLevelPaperEntities();
         public ActionResult index()
         {
-            var multidata = new Multipledata();
-            multidata.user = db.Users.ToList();
-            multidata.events = db.Events.ToList();
-            return View();
+            //var multidata = new Multipledata();
+            //multidata.user = db.Users.ToList();
+            //multidata.events = db.Events.ToList();
+
+            var enrollments = db.Enrollments.ToList();
+            return View(enrollments);
         }
 
         

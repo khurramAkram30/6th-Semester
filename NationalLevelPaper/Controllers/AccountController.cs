@@ -64,7 +64,7 @@ namespace NationalLevelPaper.Controllers
         }
 
         [HttpPost]
-        public ActionResult Register(string name,string email,string pwd)
+        public ActionResult Register(string name,int age,string qualification,string address,string phone,string email,string pwd)
         {
             var db = new NatinaolLevelPaperEntities();
 
@@ -72,7 +72,10 @@ namespace NationalLevelPaper.Controllers
             var user = new User();
 
             user.Name = name;
-
+            user.Age = age;
+            user.Qualification = qualification;
+            user.Address = address;
+            user.Phone = phone;
             user.Email = email;
 
             user.Password = pwd;
@@ -85,5 +88,18 @@ namespace NationalLevelPaper.Controllers
 
             return RedirectToAction("login");
         }
+
+        public ActionResult logout()
+        {
+            Session["id"] = null;
+
+            return RedirectToAction("login");
+
+
+            
+        }
+
+
     }
+
 }

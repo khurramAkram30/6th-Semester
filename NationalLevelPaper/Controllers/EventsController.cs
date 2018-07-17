@@ -21,46 +21,30 @@ namespace NationalLevelPaper.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Add(Event e)
-        { 
-        //    //for string change to dateTime format
-        //    //string dateInput = date;
-        //    //DateTime parsedDate = DateTime.Parse(dateInput);
+        public ActionResult Add(Event e , HttpPostedFileBase image)
+        {
 
-        //    //string to decimal
-        //    //string Fees = fees;
-        //    //decimal decFees = decimal.Parse(Fees);
-
-        //   // string to decimal
-        //    string Prize = prize;
-        //    decimal decPrize = decimal.Parse(Prize);
-
-        //    //string to int
-        //string e = winner;
-        //int f = Convert.ToInt16(e);
-            
-        //    //for inserting:
-        //    var events=new Event();
-
-        //    events.Name=name;
-        //    events.Image=image;
-        //    events.Date = date;
-        //    events.Fees =fees;
-        //    events.Eligibility = eligibility;
-        //    events.Spearker = speaker;
-        //    events.Topics = topic;
-        //    events.Prize=prize;
-        //    events.Email=email;
-        //    events.TermsAndCondition = "yes";
-        //    events.Winner = f;
-
+            if (image != null)
+            {
+                var location = Server.MapPath("~/uploading");
+                var filename = location + image.FileName;
+                image.SaveAs(filename);
+                ViewBag.file = image.FileName;
+ 
             db.Events.Add(e);
 
             db.SaveChanges();
+            return RedirectToAction("Index", "Home");
+        
+            
+            }
 
+            else
+            {
+                return View();
+            }
 
-            return RedirectToAction("Index","Home");
-        }
+         }
         
         public ActionResult Edit(int Id)
         {
@@ -74,7 +58,6 @@ namespace NationalLevelPaper.Controllers
         public ActionResult Edit(Event events)
         {
             var _events = db.Events.Find(events.Id);
-
 
 
             db.Events.Add(events);
@@ -110,7 +93,6 @@ namespace NationalLevelPaper.Controllers
 
             if (Session["id"] == null)
             {
-                //Console.WriteLine("<script>alert('plz login first')</script>");
                 return RedirectToAction("login","Account");
             }
 
@@ -137,7 +119,19 @@ namespace NationalLevelPaper.Controllers
 
             return View(Eventpage);
         }
-    
+
+
+            public ActionResult myeventpage()
+          {
+            if (Session["id"] == null)
+          {
+            return RedirectToAction("login","account");
+        }
+
+        int session = (int)Session["id"];
+         var myevent = db.Enrollments.ToList().Where(m=>m.UserId == session && m.EnrollmentStatusId == 1);
+        return View(myevent);
+        }
     
     }
 

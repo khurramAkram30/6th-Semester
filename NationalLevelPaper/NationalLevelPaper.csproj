@@ -137,6 +137,7 @@
     <Content Include="templates\chat\assets\img\gmap\m2.png" />
     <Content Include="templates\chat\assets\img\gmap\m3.png" />
     <Content Include="templates\chat\assets\img\inv-logo.png" />
+    <Content Include="templates\chat\assets\img\ksc.png" />
     <Content Include="templates\chat\assets\img\login-logo.png" />
     <Content Include="templates\chat\assets\img\logo.png" />
     <Content Include="templates\chat\assets\js\apps\calculator.js" />
@@ -1238,6 +1239,7 @@
     <Content Include="templates\chat\images\users\chat\8.jpg" />
     <Content Include="templates\chat\images\users\chat\9.jpg" />
     <Content Include="templates\chat\images\users\default-user.png" />
+    <Content Include="templates\chat\images\users\ksc.png" />
     <Content Include="templates\chat\images\users\user-100.jpg" />
     <Content Include="templates\chat\images\users\user-256.jpg" />
     <Content Include="templates\chat\images\users\user-35.jpg" />
@@ -1398,6 +1400,10 @@
     <Content Include="templates\eduhome\signup.html" />
     <Content Include="templates\eduhome\teacher-details.html" />
     <Content Include="templates\eduhome\teacher.html" />
+    <Content Include="uploading\b12.jpg" />
+    <Content Include="uploading\b13.jpg" />
+    <Content Include="uploading\b4.jpg" />
+    <Content Include="uploading\b5.jpg" />
     <Content Include="Web.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Shared\FrontEnd.cshtml" />
@@ -1450,7 +1456,6 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModel\Multipledata.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -1656,6 +1661,7 @@
     <Content Include="Views\Home\ContactDetail.cshtml" />
     <Content Include="Views\Events\EventPage.cshtml" />
     <Content Include="Views\Enrollements\index.cshtml" />
+    <Content Include="Views\Events\myeventpage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

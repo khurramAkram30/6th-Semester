@@ -20,7 +20,7 @@ namespace NationalLevelPaper.Models
         public Nullable<int> EventId { get; set; }
     
         public virtual EnrollementStatus EnrollementStatus { get; set; }
-        public virtual User User { get; set; }
         public virtual Event Event { get; set; }
+        public virtual User User { get; set; }
     }
 }

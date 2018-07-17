@@ -15,55 +15,21 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
-  <EntityType Name="User">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="UserTypeId" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="UserType" Relationship="Self.FK_Users_UserTypes1" FromRole="Users" ToRole="UserTypes" />
-    <NavigationProperty Name="Enrollments" Relationship="NatinaolLevelPaperModel.FK_Enrollments_Users" FromRole="User" ToRole="Enrollment" />
-    <NavigationProperty Name="Events" Relationship="NatinaolLevelPaperModel.FK_Events_Users" FromRole="User" ToRole="Event" />
-  </EntityType>
   <EntityType Name="UserType">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Users" Relationship="Self.FK_Users_UserTypes1" FromRole="UserTypes" ToRole="Users" />
+    <NavigationProperty Name="Users" Relationship="NatinaolLevelPaperModel.FK_Users_UserTypes1" FromRole="UserType" ToRole="User" />
   </EntityType>
-  <Association Name="FK_Users_UserTypes1">
-    <End Role="UserTypes" Type="Self.UserType" Multiplicity="1" />
-    <End Role="Users" Type="Self.User" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="UserTypes">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Users">
-        <PropertyRef Name="UserTypeId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityContainer Name="NatinaolLevelPaperEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="EnrollementStatuses" EntityType="Self.EnrollementStatus" />
     <EntitySet Name="Subcribers" EntityType="Self.Subcriber" />
-    <EntitySet Name="Users" EntityType="Self.User" />
     <EntitySet Name="UserTypes" EntityType="Self.UserType" />
-    <AssociationSet Name="FK_Users_UserTypes1" Association="Self.FK_Users_UserTypes1">
-      <End Role="UserTypes" EntitySet="UserTypes" />
-      <End Role="Users" EntitySet="Users" />
-    </AssociationSet>
     <EntitySet Name="Enrollments" EntityType="NatinaolLevelPaperModel.Enrollment" />
     <AssociationSet Name="FK_Enrollments_EnrollementStatuses" Association="NatinaolLevelPaperModel.FK_Enrollments_EnrollementStatuses">
       <End Role="EnrollementStatus" EntitySet="EnrollementStatuses" />
-      <End Role="Enrollment" EntitySet="Enrollments" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Enrollments_Users" Association="NatinaolLevelPaperModel.FK_Enrollments_Users">
-      <End Role="User" EntitySet="Users" />
       <End Role="Enrollment" EntitySet="Enrollments" />
     </AssociationSet>
     <EntitySet Name="Events" EntityType="NatinaolLevelPaperModel.Event" />
@@ -71,11 +37,20 @@
       <End Role="Event" EntitySet="Events" />
       <End Role="Enrollment" EntitySet="Enrollments" />
     </AssociationSet>
+    <EntitySet Name="Contacts" EntityType="NatinaolLevelPaperModel.Contact" />
+    <EntitySet Name="Users" EntityType="NatinaolLevelPaperModel.User" />
+    <AssociationSet Name="FK_Enrollments_Users" Association="NatinaolLevelPaperModel.FK_Enrollments_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Enrollment" EntitySet="Enrollments" />
+    </AssociationSet>
     <AssociationSet Name="FK_Events_Users" Association="NatinaolLevelPaperModel.FK_Events_Users">
       <End Role="User" EntitySet="Users" />
       <End Role="Event" EntitySet="Events" />
     </AssociationSet>
-    <EntitySet Name="Contacts" EntityType="NatinaolLevelPaperModel.Contact" />
+    <AssociationSet Name="FK_Users_UserTypes1" Association="NatinaolLevelPaperModel.FK_Users_UserTypes1">
+      <End Role="UserType" EntitySet="UserTypes" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Enrollment">
     <Key>
@@ -86,8 +61,8 @@
     <Property Name="UserId" Type="Int32" />
     <Property Name="EventId" Type="Int32" />
     <NavigationProperty Name="EnrollementStatus" Relationship="NatinaolLevelPaperModel.FK_Enrollments_EnrollementStatuses" FromRole="Enrollment" ToRole="EnrollementStatus" />
-    <NavigationProperty Name="User" Relationship="NatinaolLevelPaperModel.FK_Enrollments_Users" FromRole="Enrollment" ToRole="User" />
     <NavigationProperty Name="Event" Relationship="NatinaolLevelPaperModel.FK_Enrollments_Events" FromRole="Enrollment" ToRole="Event" />
+    <NavigationProperty Name="User" Relationship="NatinaolLevelPaperModel.FK_Enrollments_Users" FromRole="Enrollment" ToRole="User" />
   </EntityType>
   <Association Name="FK_Enrollments_EnrollementStatuses">
     <End Type="NatinaolLevelPaperModel.EnrollementStatus" Role="EnrollementStatus" Multiplicity="0..1" />
@@ -98,18 +73,6 @@
       </Principal>
       <Dependent Role="Enrollment">
         <PropertyRef Name="EnrollmentStatusId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Enrollments_Users">
-    <End Type="NatinaolLevelPaperModel.User" Role="User" Multiplicity="0..1" />
-    <End Type="NatinaolLevelPaperModel.Enrollment" Role="Enrollment" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Enrollment">
-        <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -144,6 +107,45 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Subject" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Age" Type="Int32" />
+    <Property Name="Qualification" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserTypeId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Enrollments" Relationship="NatinaolLevelPaperModel.FK_Enrollments_Users" FromRole="User" ToRole="Enrollment" />
+    <NavigationProperty Name="Events" Relationship="NatinaolLevelPaperModel.FK_Events_Users" FromRole="User" ToRole="Event" />
+    <NavigationProperty Name="UserType" Relationship="NatinaolLevelPaperModel.FK_Users_UserTypes1" FromRole="User" ToRole="UserType" />
+  </EntityType>
+  <Association Name="FK_Enrollments_Users">
+    <End Type="NatinaolLevelPaperModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="NatinaolLevelPaperModel.Enrollment" Role="Enrollment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Enrollment">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Events_Users">
     <End Type="NatinaolLevelPaperModel.User" Role="User" Multiplicity="0..1" />
     <End Type="NatinaolLevelPaperModel.Event" Role="Event" Multiplicity="*" />
@@ -156,14 +158,16 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityType Name="Contact">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Subject" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-  </EntityType>
+  <Association Name="FK_Users_UserTypes1">
+    <End Type="NatinaolLevelPaperModel.UserType" Role="UserType" Multiplicity="1" />
+    <End Type="NatinaolLevelPaperModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="UserTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>
