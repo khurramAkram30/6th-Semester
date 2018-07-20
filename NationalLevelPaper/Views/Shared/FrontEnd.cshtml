@@ -66,12 +66,18 @@
                                         
                                         
                                         <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>
-                                        <li>@*@Html.ActionLink("Login", "Login", "Account")*@
+                                        <li>@*@html.actionlink("login", "login", "account")*@
 
 
                                         @if (Session["id"] != null)
                                         {
                                             @Html.ActionLink("Logout", "logout", "Account")
+                                          <ul>
+                                                <li>
+                                                    @Html.ActionLink("My Profile", "MyInfo", "Home")
+                                            </li>
+                                        </ul>
+                                        
                                         }
                                         else
                                         {

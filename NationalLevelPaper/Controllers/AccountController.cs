@@ -10,8 +10,7 @@ namespace NationalLevelPaper.Controllers
     {
         
         // GET: Account
-
-
+    	
         public ActionResult index()
         {
             var db = new NatinaolLevelPaperEntities();
@@ -29,6 +28,9 @@ namespace NationalLevelPaper.Controllers
         [HttpPost]
         public ActionResult Login(string email ,string password)
         {
+
+                
+            
             var db = new NatinaolLevelPaperEntities();
 
             var user = db.Users.FirstOrDefault(u => u.Email == email && u.Password == password);
@@ -70,8 +72,8 @@ namespace NationalLevelPaper.Controllers
 
 
             var user = new User();
-
-            user.Name = name;
+            
+            user.Name= name;
             user.Age = age;
             user.Qualification = qualification;
             user.Address = address;
@@ -93,12 +95,12 @@ namespace NationalLevelPaper.Controllers
         {
             Session["id"] = null;
 
-            return RedirectToAction("login");
+            return RedirectToAction("login","Account");
 
 
             
         }
-
+    
 
     }
 

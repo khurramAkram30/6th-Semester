@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using NationalLevelPaper.Models;
+using System.Dynamic;
 namespace NationalLevelPaper.Controllers
 {
     public class HomeController : Controller
@@ -13,6 +14,9 @@ namespace NationalLevelPaper.Controllers
         public ActionResult Index()
         {
             var events = db.Events.ToList();
+
+            var events1 = db.Events.ToList().Where(u=>u.Winner != null);
+            ViewBag.show = events1;
             return View(events);
             
         }
@@ -70,6 +74,39 @@ namespace NationalLevelPaper.Controllers
         {
 
             return View();
+        }
+
+
+        public ActionResult MyInfo(){
+
+            if(Session["id"] == null){
+                return RedirectToAction("login","account");
+            }
+            else{
+                var session=(int)Session["id"];
+                var user = db.Users.ToList().Where(u=>u.Id == session);
+                return View(user);
+            }
+
+        }
+
+        [HttpPost]
+        public ActionResult MyInfo(string username,int age,string quali,string address,string phone,string email,string pass)
+        {
+            var user = new User();
+
+            user.Name = username;
+            user.Age = age;
+            user.Qualification = quali;
+            user.Address = address;
+            user.Phone = phone;
+            user.Email = email;
+            user.Password = pass;
+
+           
+            db.SaveChanges();
+
+            return View("index");
         }
 
     }

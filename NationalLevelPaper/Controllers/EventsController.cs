@@ -30,9 +30,12 @@ namespace NationalLevelPaper.Controllers
                 var filename = location + image.FileName;
                 image.SaveAs(filename);
                 ViewBag.file = image.FileName;
- 
-            db.Events.Add(e);
+                e.Image=filename;
 
+                e.Winner = null;
+                
+            db.Events.Add(e);
+            
             db.SaveChanges();
             return RedirectToAction("Index", "Home");
         
@@ -41,8 +44,12 @@ namespace NationalLevelPaper.Controllers
 
             else
             {
+                //e.Winner = null;
+                //db.Events.Add(e);
+
+                //db.SaveChanges();
                 return View();
-            }
+          }
 
          }
         
@@ -59,8 +66,18 @@ namespace NationalLevelPaper.Controllers
         {
             var _events = db.Events.Find(events.Id);
 
-
-            db.Events.Add(events);
+            _events.Name = events.Name;
+            _events.Date = events.Date;
+            _events.Fees = events.Fees;
+            _events.Eligibility = events.Eligibility;
+            _events.Spearker= events.Spearker;
+            _events.Topics= events.Topics;
+            _events.Prize = events.Prize;
+            _events.Email = events.Email;
+            _events.TermsAndCondition = events.TermsAndCondition;
+            _events.Winner = events.Winner;
+             
+            //db.Events.Add(events);
 
             db.SaveChanges();
 
